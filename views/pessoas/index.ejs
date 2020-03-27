@@ -1,0 +1,31 @@
+<%- include ('../partials/header.ejs') %>
+
+<h1>Lista pessoas</h1>
+<a href="/pessoas/create">Nova pessoa</a>
+
+<table class="table table-striped table-hover table bordered">
+  <tr>
+    <th>Pessoa</th>
+    <th>Cargo</th>
+    <th>Ações</th>
+  </tr>
+
+  <% pessoas.map( pessoa => { %>
+  <tr>
+    <td><%= pessoa.nome %></td>
+    <td><%= pessoa.cargo %></td>
+    <td>
+      <div class="btn-group" role="group">
+        <a href="/pessoas/edit/<%= pessoa.id %>" class="btn btn-secondary">Editar</a>
+        <a href="/pessoas/delete/<%= pessoa.id %>" class="btn btn-secondary">Excluir</a>
+      </div>
+    </td>
+  </tr>
+
+  <% }) %>
+
+</table>
+
+
+
+<%- include ('../partials/footer.ejs') %>
